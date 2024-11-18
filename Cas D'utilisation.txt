@@ -1,0 +1,39 @@
+										Cas D'utilisation
+____________________________________________________________________________________________________________________________________________________________________________________________
+		Messages de succès de connexion :
+
+🎉 Connexion réussie ! Bienvenue, [Nom de l'utilisateur] !
+
+✅ Vous êtes connecté avec succès.
+
+✨ Heureux de vous revoir, [Nom de l'utilisateur] !
+____________________________________________________________________________________________________________________________________________________________________________________________
+
+		Messages d'échec de connexion :
+
+⚠️ Erreur de connexion. Veuillez vérifier vos identifiants et réessayer.
+
+❌ Connexion échouée. Nom d'utilisateur ou mot de passe incorrect.
+
+🚫 Accès refusé. Vos informations d'identification ne sont pas valides.
+
+⛔ Si vous avez un problème de connexion, veuillez contacter le support technique.
+____________________________________________________________________________________________________________________________________________________________________________________________
+
+1- Si l'utilisateur est connecté ou déjà enregistré dans la base de données
+____________________________________________________________________________________________________________________________________________________________________________________________
+Objet : Nouvelle lettre - 2 cas : déjà inscrit et déjà connecté
+
+Email incorrect.
+Le nom de domaine est malveillant.
+
+Message de succès de la newsletter :
+
+🎉 Merci de vous être inscrit(e) à notre newsletter !
+
+Messages d'échec de la newsletter :
+
+⚠️ Erreur de connexion. Veuillez vérifier vos identifiants et réessayer.
+
+
+

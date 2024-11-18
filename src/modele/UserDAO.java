@@ -21,16 +21,16 @@ public class UserDAO {
             e.printStackTrace();  
         } 
     }
-    public void verifUser (User user) {
+    public boolean verifUser (User user) {
         String query = "SELECT id FROM user WHERE mail = ? AND motDePasse = ?";
         Integer userId = null; // Initialize userId
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, user.getEmail());
             stmt.setString(2, user.getMotDePasse());
             try (ResultSet rs = stmt.executeQuery()) {
-                // If a result is found, retrieve the ID
+                // Si un résultat est trouvé, récupérer l’ID
                 if (rs.next()) {
-                    userId = rs.getInt("id");  // Retrieve the "id" column from the result
+                    userId = rs.getInt("id");  //  Récup la colonne "id" à partir du résultat
                 }
             }catch (SQLException e) {
               e.printStackTrace();
@@ -38,12 +38,13 @@ public class UserDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+		return false;
 
     }
     
     public List<User> getLsUsers() {
         List<User> lstUsers = new ArrayList<>(); 
-        String query = "SELECT * FROM users";  // Ensure the table name is correct
+        String query = "SELECT * FROM users";  // Vérifi que le nom de la table est correct
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             

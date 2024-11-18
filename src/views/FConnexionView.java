@@ -168,6 +168,4 @@ public class FConnexionView extends JFrame {
         dispose();
     }
 
-
-	
 }

@@ -73,6 +73,7 @@ public class FArticlesView extends JDialog {
 
     private JRadioButton rdbtnCode;
     private JTextField txtQuantite;
+   
 
     private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
     private final Chercheur chercheur = new Chercheur();

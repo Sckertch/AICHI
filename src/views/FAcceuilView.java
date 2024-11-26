@@ -5,8 +5,6 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-
-
 public class FAcceuilView extends JFrame {
 	private static final long serialVersionUID = 1L;
 
@@ -14,9 +12,6 @@ public class FAcceuilView extends JFrame {
 	private JMenuItem mntmQuitter, mntmClients, mntmArticles, mntmCommandes, mntmParametres;
 	private JButton btnQuitter, btnClients, btnArticles, btnStats, btnCommandes, btnParametres;
 	private JLabel lblInfos;
-	private JButton btnGererArticles;
-	private JButton btnRetourAccueil;
-
 
 	public FAcceuilView() {
 		// Configuration de la fenêtre principale
@@ -105,46 +100,13 @@ public class FAcceuilView extends JFrame {
 		btnStats = new JButton("Statistiques");
 		btnCommandes = new JButton("Commandes");
 		btnParametres = new JButton("Paramètres");
-		 btnGererArticles = new JButton("Gérer les Articles");
-		    btnGererArticles.addActionListener(new ActionListener() {
-		        @Override
-		        public void actionPerformed(ActionEvent e) {
-		            ouvrirFenetreArticles();
-		        }
-		    });
-		    btnRetourAccueil = new JButton("Retour à l'accueil");
-		    btnRetourAccueil.addActionListener(new ActionListener() {
-		        @Override
-		        public void actionPerformed(ActionEvent e) {
-		            retourAccueil();
-		        }
-		    });
-		    
-		    
-		    getContentPane().add(btnRetourAccueil);
-		    getContentPane().add(btnGererArticles);
+
 		// Ajouter les boutons au panneau principal
 		panel_principal.add(btnArticles);
 		panel_principal.add(btnClients);
 		panel_principal.add(btnStats);
 		panel_principal.add(btnCommandes);
 		panel_principal.add(btnParametres);
-	}
-	
-	
-
-	
-	
-	private void retourAccueil() {
-	    FAcceuilView accueilView = new FAcceuilView();
-	    accueilView.setVisible(true); // Ouvre la fenêtre d'accueil
-	    dispose(); // Ferme la fenêtre actuelle des articles
-	}
-	
-	private void ouvrirFenetreArticles() {
-	    FArticlesView articleView = new FArticlesView();
-	    articleView.setVisible(true); // Ouvre la fenêtre des articles
-	    dispose(); // Ferme la vue d'accueil si nécessaire
 	}
 
 	// Ajout d'écouteurs aux boutons et aux éléments de menu

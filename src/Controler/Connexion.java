@@ -8,6 +8,7 @@ import views.FAcceuilView;
 import views.FConnexionView;
 import modele.User;
 import modele.UserDAO;
+import Controler.FAccueilController;
 
 public class Connexion {
     private FConnexionView view;
@@ -37,6 +38,7 @@ public class Connexion {
                 
                 // Proceed with the application flow, e.g., open the main application window
                 FAcceuilView accueilView = new FAcceuilView();
+                FAccueilController accueilController = new FAccueilController(accueilView);
                 accueilView.setVisible(true);
                 
                 view.dispose();

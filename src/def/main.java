@@ -15,4 +15,7 @@ public class main {
 	}
 
 }
-//test
+
+
+// cd ../../../d/Git/Aichi
+

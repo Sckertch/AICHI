@@ -14,10 +14,12 @@ public class FAccueilController {
 
     public FAccueilController(FAcceuilView view) {
         this.view = view;
+        System.out.println("testaceuil");
         view.addQuitterListener(new QuitterListener());
         view.addArticlesListener(new ArticlesListener());
         view.addClientsListener(new ClientsListener());
         view.addCommandesListener(new CommandesListener());
+        
     }
 
     static class QuitterListener implements ActionListener {
@@ -31,6 +33,7 @@ public class FAccueilController {
         @Override
         public void actionPerformed(ActionEvent e) {
             view.setInfoText("Affichage des Articles");
+            System.out.println("Article");
             afficherArticles();
         }
     }

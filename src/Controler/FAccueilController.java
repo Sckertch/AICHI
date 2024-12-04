@@ -3,6 +3,7 @@ package Controler;
 import views.FAcceuilView;
 import views.FArticlesView;
 import views.FCommandesView;
+import views.FClientsView;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -46,6 +47,7 @@ public class FAccueilController {
         @Override
         public void actionPerformed(ActionEvent e) {
             view.setInfoText("Affichage des Clients");
+            afficherClients();
         }
     }
 
@@ -65,6 +67,11 @@ public class FAccueilController {
     protected void afficherCommandes(Window parent) {
         FCommandesView laFenetreC = new FCommandesView(parent);
         laFenetreC.setVisible(true);
+    }
+    
+    protected void afficherClients() {
+        FClientsView laFenetreCli = new FClientsView(this);
+        laFenetreCli.setVisible(true);
     }
  
 }

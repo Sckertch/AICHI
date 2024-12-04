@@ -47,6 +47,8 @@ import javax.swing.event.TableModelListener;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
+import Controler.FAccueilController;
+
 
 public class FClientsView extends JPanel {
 
@@ -77,16 +79,8 @@ public class FClientsView extends JPanel {
     private JButton btnAjouter;
 
 
-        // gestion du rendu des colonnes du JTables
-        // ----------------------------------------
-        TableColumnModel modeleColonne = table.getColumnModel();
-        TableColumn noms = modeleColonne.getColumn(1);
-        TableColumn cartes = modeleColonne.getColumn(3);
-
-        TableColumn dates = modeleColonne.getColumn(4);
-
-
-    public FClientsView() {
+    public FClientsView(FAccueilController connexionDAO) {
+    	System.out.println("ckliennnnnnn");
         setBackground(new Color(0x33, 0xB5, 0xE5));
         setBorder(null);
         setLayout(new BorderLayout(0, 0));
@@ -171,6 +165,18 @@ public class FClientsView extends JPanel {
         JPanel panel_principal = new JPanel();
         panel_principal.setBackground(new Color(197, 234, 248));
         add(panel_principal, BorderLayout.CENTER);
+        
+        // Initialisation du tableau
+        table = new JTable(new Object[][]{}, new String[]{"Colonne 1", "Colonne 2", "Colonne 3"});
+        JScrollPane scrollPane = new JScrollPane(table);
+        panel_principal.add(scrollPane, "cell 0 1 4 1,grow");
+        scrollPane.setOpaque(false);
+
+        // Assurez-vous que la table a un modèle avant d'accéder aux colonnes
+        TableColumnModel modeleColonne = table.getColumnModel();
+        TableColumn noms = modeleColonne.getColumn(0);
+        TableColumn cartes = modeleColonne.getColumn(1);
+        TableColumn dates = modeleColonne.getColumn(2);
 
         JPanel panel_formulaire = new JPanel();
         panel_formulaire.setOpaque(false);
@@ -348,15 +354,6 @@ public class FClientsView extends JPanel {
         gbc_txtEmail.gridy = 4;
         panel_formulaire.add(txtEmail, gbc_txtEmail);
         txtEmail.setColumns(10);
-
-        table = new JTable();
-
-
-        JScrollPane scrollPane = new JScrollPane(table);
-        panel_principal.add(scrollPane, "cell 0 1 4 1,grow");
-        scrollPane.setOpaque(false);
-
-
     }
 
 

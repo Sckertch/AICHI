@@ -21,25 +21,22 @@ public class UserDAO {
             e.printStackTrace();  
         } 
     }
+    
     public boolean verifUser (User user) {
         String query = "SELECT id FROM user WHERE mail = ? AND motDePasse = ?";
-        Integer userId = null; // Initialize userId
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, user.getEmail());
             stmt.setString(2, user.getMotDePasse());
             try (ResultSet rs = stmt.executeQuery()) {
-                // Si un résultat est trouvé, récupérer l’ID
+                // Si un résultat est trouvé, récupérer l’ID et retourner true
                 if (rs.next()) {
-                    userId = rs.getInt("id");  //  Récup la colonne "id" à partir du résultat
+                    return true;  // Identifiants corrects
                 }
-            }catch (SQLException e) {
-              e.printStackTrace();
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-		return false;
-
+        return false;  // Identifiants incorrects
     }
     
     public List<User> getLsUsers() {

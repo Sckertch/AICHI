@@ -355,6 +355,8 @@ public class FClientsView extends JPanel {
         JScrollPane scrollPane = new JScrollPane(table);
         panel_principal.add(scrollPane, "cell 0 1 4 1,grow");
         scrollPane.setOpaque(false);
+        
+        SwingUtilities.invokeLater(() -> btnAccueil.requestFocusInWindow());
 
 
     }

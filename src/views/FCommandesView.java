@@ -2,6 +2,10 @@
 package views;
 
 import java.awt.BorderLayout;
+
+import modele.UserDAO;
+import views.FCommandeClientSelectionView;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -9,8 +13,10 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.time.Instant;
+import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -21,6 +27,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -36,6 +43,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
+
+import Controler.FAccueilController;
 
 
 public class FCommandesView extends JDialog {
@@ -59,12 +68,11 @@ public class FCommandesView extends JDialog {
 
     private JLabel lblValeurTotale;
     private JButton btnChoixclient;
+    private final Action ActionChoixClients = new ActionChoixClients();
+    private JButton btnSelectionarticle;
 
 
-
-    public FCommandesView(Window parent) {
-        super(parent);
-
+    public FCommandesView() {
         setTitle("Gestion des Commandes");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 1000, 700);
@@ -258,6 +266,7 @@ public class FCommandesView extends JDialog {
         gbc_btnChoixclient.gridx = 1;
         gbc_btnChoixclient.gridy = 1;
         panel_informations.add(btnChoixclient, gbc_btnChoixclient);
+        btnChoixclient.setAction(ActionChoixClients);
         btnChoixclient.setOpaque(true);
         btnChoixclient.setBackground(new Color(0xFF, 0xBB, 0x33));
         // btnChoixclient.setBackground(new Color(0x33, 0xB5, 0xE5));
@@ -491,8 +500,36 @@ public class FCommandesView extends JDialog {
         panel_principal.add(btnValideCommande, gbc_btnValideCommande);
 
         SwingUtilities.invokeLater(() -> btnAccueil.requestFocusInWindow());
+        
+        
+    }
+    
+    
+	// Ajout d'écouteurs aux boutons et aux éléments de menu
+    
+    private class ActionChoixClients extends AbstractAction {
+    	private static final long serialVersionUID = 1L;
+    	
+        public ActionChoixClients() {
+            putValue(NAME, "Choisir");
+            putValue(SHORT_DESCRIPTION, "Sélectionner un client");
+        }
+    	
+    	
+    	public void actionPerformed(ActionEvent listener) {
+    		UserDAO listClient = new UserDAO();
+    		List<String> clients = listClient.getlsNomUsers();
+    		
+    		FCommandeClientSelectionView vueClient = new FCommandeClientSelectionView(FCommandesView.this, clients);
+    		vueClient.setVisible(true);
+    		
+    	}
     }
 
+    
+    public void selectArticleListener(ActionListener listener) {
+    	btnSelectionarticle.addActionListener(listener);
+    }
 
 
 

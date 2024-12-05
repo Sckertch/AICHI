@@ -1,41 +1,56 @@
 package modele;
 
 public class Article {
-    private int code;
-    private String Designation;
+    private int idArt; // Remplacer code par idArt
+    private String nomArt; // Remplacer Designation par nomArt
     private int quantite;
     private double prixUnitaire;
 
-    public Article(int code, String Designation, int quantite, double prixUnitaire) {
-        this.code = code;
-        this.Designation = Designation;
+    // Constructeur avec paramètres
+    public Article(int idArt, String nomArt, int quantite, double prixUnitaire) {
+        this.idArt = idArt; // Mettre à jour la variable correspondante
+        this.nomArt = nomArt; // Mettre à jour la variable correspondante
         this.quantite = quantite;
         this.prixUnitaire = prixUnitaire;
     }
+
+    // Constructeur sans paramètres
     public Article() {
 
     }
-    public int getCode() {
-        return code;
+
+    // Getter et setter pour idArt
+    public int getIdArt() {
+        return idArt;
     }
-    public void setCode(int code) {
-        this.code = code;
+
+    public void setIdArt(int idArt) {
+        this.idArt = idArt;
     }
-    public String getDesignation() {
-        return Designation;
+
+    // Getter et setter pour nomArt
+    public String getNomArt() {
+        return nomArt;
     }
-    public void setDesignation(String designation) {
-        Designation = designation;
+
+    public void setNomArt(String nomArt) {
+        this.nomArt = nomArt;
     }
+
+    // Getter et setter pour quantite
     public int getQuantite() {
         return quantite;
     }
+
     public void setQuantite(int quantite) {
         this.quantite = quantite;
     }
+
+    // Getter et setter pour prixUnitaire
     public double getPrixUnitaire() {
         return prixUnitaire;
     }
+
     public void setPrixUnitaire(double prixUnitaire) {
         this.prixUnitaire = prixUnitaire;
     }

@@ -36,7 +36,6 @@ public class Connexion {
                 System.out.println("Connexion réussie");
                 JOptionPane.showMessageDialog(view, "Connexion réussie", "Succès", JOptionPane.INFORMATION_MESSAGE);
                 
-                // Proceed with the application flow, e.g., open the main application window
                 FAcceuilView accueilView = new FAcceuilView();
                 FAccueilController accueilController = new FAccueilController(accueilView);
                 accueilView.setVisible(true);

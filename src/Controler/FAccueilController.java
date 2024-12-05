@@ -2,11 +2,14 @@ package Controler;
 
 import views.FAcceuilView;
 import views.FArticlesView;
+import views.FCommandesView;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
+
+import java.awt.Window;
 import java.awt.event.*;
 
 public class FAccueilController {
@@ -50,6 +53,7 @@ public class FAccueilController {
         @Override
         public void actionPerformed(ActionEvent e) {
             view.setInfoText("Affichage des Commandes");
+            afficherCommandes(view);
         }
     }
 
@@ -57,11 +61,10 @@ public class FAccueilController {
         FArticlesView laFenetre = new FArticlesView(this);
         laFenetre.setVisible(true);
     }
-    /* //A implémenter par la suite
-    protected void afficherCommandes() {
-        FCommandesView laFenetreC = new FCommandesView(this);
+
+    protected void afficherCommandes(Window parent) {
+        FCommandesView laFenetreC = new FCommandesView(parent);
         laFenetreC.setVisible(true);
     }
-
-    */
+ 
 }

@@ -1,6 +1,7 @@
 package views;
 
 import Controler.FAccueilController;
+
 import modele.UserDAO;
 
 import java.awt.BorderLayout;
@@ -44,7 +45,11 @@ import javax.swing.table.TableColumnModel;
 public class FArticlesView extends JDialog {
 
     private static final long serialVersionUID = 1L;
-
+    
+    private JButton btnAjouter; 
+    private JButton btnModifier;
+    private JButton btnSupprimer;
+    private JButton btnAnnuler;
     private JPanel contentPane;
     private JTable table;
     private JTextField txtCode;
@@ -432,6 +437,61 @@ public class FArticlesView extends JDialog {
         bouton_mode_ajout_ou_edition(true);
 
         SwingUtilities.invokeLater(() -> btnAccueil.requestFocusInWindow());
+    }
+
+    public void addAddArticleListener(ActionListener listener) {
+        btnAjouter.addActionListener(listener);
+    }
+
+    public void addModifyArticleListener(ActionListener listener) {
+        btnModifier.addActionListener(listener);
+    }
+
+    public void addDeleteArticleListener(ActionListener listener) {
+        btnSupprimer.addActionListener(listener);
+    }
+
+    public void addClearFieldsListener(ActionListener listener) {
+        btnAnnuler.addActionListener(listener);
+    }
+
+    public JTextField getTxtCode() {
+        return txtCode;
+    }
+
+    public JTextField getTxtDesignation() {
+        return txtDesignation;
+    }
+
+    public JSlider getSliderQuantite() {
+        return sliderQuantite;
+    }
+
+    public JFormattedTextField getTxtPrixUnitaire() {
+        return txtPrixUnitaire;
+    }
+
+    public int getSelectedTableRow() {
+        return table.getSelectedRow();
+    }
+
+    public void clearFields() {
+        txtCode.setText("");
+        txtDesignation.setText("");
+        sliderQuantite.setValue(1);
+        txtPrixUnitaire.setValue(0.0);
+    }
+
+    public void updateTable(List<Article> articles) {
+        // Mettre à jour le modèle de la table avec la liste des articles
+    }
+
+    public void showErrorMessage(String message) {
+        JOptionPane.showMessageDialog(this, message, "Erreur", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void showSuccessMessage(String message) {
+        JOptionPane.showMessageDialog(this, message, "Succès", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private class ActionAccueil extends AbstractAction {

@@ -56,4 +56,19 @@ public class UserDAO {
         }  
         return lstUsers; 
     }
+    
+    public List<String> getlsNomUsers() {
+        List<String> lstUsers = new ArrayList<>(); 
+        String query = "SELECT nom FROM user";  
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+            
+            while (rs.next()) { 
+                lstUsers.add(rs.getString("nom"));   
+            }
+        } catch (SQLException e) {  
+            e.printStackTrace();  
+        }  
+        return lstUsers; 
+    }
 }

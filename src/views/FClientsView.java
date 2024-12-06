@@ -354,6 +354,19 @@ public class FClientsView extends JPanel {
         gbc_txtEmail.gridy = 4;
         panel_formulaire.add(txtEmail, gbc_txtEmail);
         txtEmail.setColumns(10);
+
+
+        table = new JTable();
+
+
+        JScrollPane scrollPane1 = new JScrollPane(table);
+        panel_principal.add(scrollPane1, "cell 0 1 4 1,grow");
+        scrollPane1.setOpaque(false);
+        
+        SwingUtilities.invokeLater(() -> btnAccueil.requestFocusInWindow());
+
+
+
     }
 
 

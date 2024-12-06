@@ -55,7 +55,7 @@ public class FAccueilController {
         @Override
         public void actionPerformed(ActionEvent e) {
             view.setInfoText("Affichage des Commandes");
-            afficherCommandes(view);
+            afficherCommandes();
         }
     }
 
@@ -64,8 +64,8 @@ public class FAccueilController {
         laFenetre.setVisible(true);
     }
 
-    protected void afficherCommandes(Window parent) {
-        FCommandesView laFenetreC = new FCommandesView(parent);
+    protected void afficherCommandes() {
+        FCommandesView laFenetreC = new FCommandesView();
         laFenetreC.setVisible(true);
     }
     

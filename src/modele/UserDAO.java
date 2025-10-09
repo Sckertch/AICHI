@@ -13,8 +13,8 @@ public class UserDAO {
         try {  
             // Connection à MySQL 
             String url = "jdbc:mysql://mysql-sckertch.alwaysdata.net:3306/sckertch_aichi"; // Removed extra space
-            String username = "sckertch_aichi_a";  
-            String password = "Graduate4-Footprint-Backslid";  
+            String username = "sckertch";  
+            String password = "Lavageauto";  
             Class.forName("com.mysql.cj.jdbc.Driver"); 
             connection = DriverManager.getConnection(url, username, password);  
         } catch (SQLException | ClassNotFoundException e) {
@@ -38,6 +38,23 @@ public class UserDAO {
         }
         return false;  // Identifiants incorrects
     }
+    
+    public void addUser (User user) {
+        String query = "INSERT INTO user (nom, prenom, mail, motDePasse) VALUES (?,?,?,?)";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+        	System.out.println(user.getNom());
+        	System.out.println(user.getPrenom());
+        	System.out.println(user.getEmail());
+        	System.out.println(user.getMotDePasse());
+        	stmt.setString(1, user.getNom());
+        	stmt.setString(2, user.getPrenom());
+            stmt.setString(3, user.getEmail());
+            stmt.setString(4, user.getMotDePasse());
+            int rs = stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }  // Identifiants incorrects
+     }
     
     public List<User> getLsUsers() {
         List<User> lstUsers = new ArrayList<>(); 
